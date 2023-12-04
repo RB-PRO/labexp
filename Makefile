@@ -4,19 +4,19 @@ run:
 	go run cmd/main/main.go
 
 push:
-	git push git@github.com:RB-PRO/ClikShop.git
+	git push git@github.com:RB-PRO/labexp.git
 
 pull:
-	git pull git@github.com:RB-PRO/ClikShop.git
+	git pull git@github.com:RB-PRO/labexp.git
 
 pushW:
-	git push https://github.com/RB-PRO/ClikShop.git
+	git push https://github.com/RB-PRO/labexp.git
 
 pullW:
-	git pull https://github.com/RB-PRO/ClikShop.git
+	git pull https://github.com/RB-PRO/labexp.git
 
 pushCar:
-	scp main root@194.87.107.129:go/ClikShop/
+	scp main root@194.87.107.129:go/labexp/
 
 build-config:
 	go env GOOS GOARCH

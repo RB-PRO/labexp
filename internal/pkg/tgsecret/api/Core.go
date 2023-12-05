@@ -43,6 +43,8 @@ func setupRouter(db *JsonBase.Base, ch chan string) *gin.Engine {
 				UserPC:   user,
 				FileName: file,
 			})
+			db.Data.Kkeys[key] = val
+			db.Save()
 		} else {
 			Message += "\nВНИМАНИЕ! Такого ключа в базе вообще нет"
 		}

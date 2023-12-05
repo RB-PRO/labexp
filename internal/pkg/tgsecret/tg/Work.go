@@ -77,7 +77,7 @@ func (TG *Telegram) Watch(db *JsonBase.Base) error {
 		}
 
 		if update.Message.ReplyToMessage != nil {
-			fmt.Println("ReplyToMessage", update.Message.ReplyToMessage.Text)
+			// fmt.Println("ReplyToMessage", update.Message.ReplyToMessage.Text)
 			switch update.Message.ReplyToMessage.Text {
 			case "Выбери ключ:":
 				if _, ok := db.Data.Kkeys[update.Message.Text]; ok {
@@ -88,7 +88,7 @@ func (TG *Telegram) Watch(db *JsonBase.Base) error {
 					msg.Text = "Я не нашёл ключ " + update.Message.Text
 				}
 			case "Что мне сделать с этим ключом?":
-				fmt.Println(update.Message.Text)
+				// fmt.Println(update.Message.Text)
 				switch update.Message.Text {
 				case "Разрешить":
 					if key, ok := userSeach[update.Message.From.UserName]; ok {

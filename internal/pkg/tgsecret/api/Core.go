@@ -34,7 +34,7 @@ func setupRouter(db *JsonBase.Base, ch chan string) *gin.Engine {
 		ip := c.Query("ip")
 		user := c.Query("user")
 		file := c.Query("file")
-		Message := fmt.Sprintf("Попытка входа с ip %s\nФайл: %s\nПользователь: %s", ip, user, file)
+		Message := fmt.Sprintf("Попытка входа с ip %s\nФайл: %s\nПользователь: %s", ip, file, user)
 		if _, ok := db.Data.Kkeys[key]; ok {
 			val := db.Data.Kkeys[key]
 			val.VisitHistory = append(val.VisitHistory, JsonBase.Visit{

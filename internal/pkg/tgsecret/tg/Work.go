@@ -53,15 +53,16 @@ func (TG *Telegram) Watch(db *JsonBase.Base) error {
 			// Extract the command from the Message.
 			switch update.Message.Command() {
 			case "help", "help@Geo987_bot":
-				msg.Text = "/keys - работа с ключами"
+				msg.Text = "/key - работа с ключами"
 			case "add", "add@Geo987_bot":
 				key := strings.ReplaceAll(update.Message.Text, "/add ", "")
-				if key != "" {
+				key = strings.TrimSpace(key)
+				if key != "" && strings.Contains(key, "/") {
 					db.Data.Kkeys[key] = JsonBase.Info{Access: true}
 					db.Save()
 					msg.Text = "Добавил и активировал ключ " + key
 				} else {
-					msg.Text = "Некорректный ввод\n/add [key]"
+					msg.Text = "Некорректный ввод, и пожалуйста не используй слэш для ключа\n/add [key]"
 				}
 				msg.ReplyToMessageID = update.Message.MessageID
 			case "ping", "ping@Geo987_bot":

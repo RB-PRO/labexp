@@ -21,7 +21,7 @@ func NewAPI(db *JsonBase.Base, c chan string) *API {
 
 // Запускаем API
 func (api *API) Watch() error {
-	return api.Run(":8080")
+	return api.Run(":9003")
 }
 
 func setupRouter(db *JsonBase.Base, ch chan string) *gin.Engine {

@@ -57,7 +57,8 @@ func (TG *Telegram) Watch(db *JsonBase.Base) error {
 			case "add", "add@Geo987_bot":
 				key := strings.ReplaceAll(update.Message.Text, "/add ", "")
 				key = strings.TrimSpace(key)
-				if key != "" && strings.Contains(key, "/") {
+				fmt.Printf("'%s'\n", key)
+				if key != "" && !strings.Contains(key, "/") {
 					db.Data.Kkeys[key] = JsonBase.Info{Access: true}
 					db.Save()
 					msg.Text = "Добавил и активировал ключ " + key
